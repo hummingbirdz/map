@@ -31,13 +31,15 @@
 
             map.addLayer({
               id: 'job-markers',
-              type: 'circle',
+              type: 'symbol',
               source: 'jobs',
+              layout: {
+                'icon-image': ['get', 'icon'],
+                'icon-size': 1,
+                'icon-allow-overlap': true
+              },
               paint: {
-                'circle-radius': 6,
-                'circle-color': ['get', 'companyColor'],
-                'circle-stroke-width': 1,
-                'circle-stroke-color': '#ffffff'
+                'icon-color': ['get', 'companyColor']
               }
             });
 
