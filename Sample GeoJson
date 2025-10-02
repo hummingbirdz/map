@@ -1,0 +1,31 @@
+
+
+Ctrl ⇧↵
+
+Import
+
+Export
+
+Show API
+Feedback
+36 columns
+25 rows
+
+{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      "-3.5079773",
+      "50.7123391"
+    ]
+  },
+  "properties": {
+    "userEmail": "awesomeestates@gmail.com",
+    "companyName": "Awesome Estates",
+    "companyColor": "#BE2B2B",
+    "address": "11 Burns Ave, Exeter EX2 6BX, UK",
+    "JobType": "New For Sale",
+    "icon": "sale-icon"
+  }
+}
