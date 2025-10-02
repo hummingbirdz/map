@@ -31,23 +31,23 @@
 
             map.addLayer({
               id: 'job-markers',
-              type: 'symbol',
+              type: 'circle',
               source: 'jobs',
-              layout: {
-                'icon-image': ['get', 'icon'],
-                'icon-size': 1,
-                'icon-allow-overlap': true
-              },
               paint: {
-                'icon-color': ['get', 'companyColor']
+                'circle-radius': 6,
+                'circle-color': ['get', 'companyColor'],
+                'circle-stroke-width': 1,
+                'circle-stroke-color': '#ffffff'
               }
             });
 
             const bounds = new mapboxgl.LngLatBounds();
-            data.features.forEach(f => bounds.extend([
-              parseFloat(f.geometry.coordinates[0]),
-              parseFloat(f.geometry.coordinates[1])
-            ]));
+            data.features.forEach(f => {
+              const lng = parseFloat(f.geometry.coordinates[0]);
+              const lat = parseFloat(f.geometry.coordinates[1]);
+              bounds.extend([lng, lat]);
+            });
+
             if (!bounds.isEmpty()) {
               map.fitBounds(bounds, { padding: 50, maxZoom: 15 });
             }
