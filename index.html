@@ -20,7 +20,15 @@
         container: 'map',
         style: 'mapbox://styles/hummingbirdz/cmg9mb6mq009q01scessj51m0',
         center: [-3.53, 50.72],
-        zoom: 10
+        zoom: 10,
+        transformRequest: (url, resourceType) => {
+          if (resourceType === 'Tile' && url.startsWith('https://')) {
+            return {
+              url: url,
+              headers: { Authorization: `Bearer ${mapboxgl.accessToken}` }
+            };
+          }
+        }
       });
     </script>
   </body>
